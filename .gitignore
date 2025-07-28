@@ -1,0 +1,5 @@
+# avoid committing large datasets and feature files
+data/features/
+data/processed/
+models/*.pkl
+*.pkl
