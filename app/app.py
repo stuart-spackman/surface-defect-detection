@@ -1,11 +1,17 @@
 # app/app.py
 
-import streamlit as st
-from PIL import Image
+import sys
 import os
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+import streamlit as st
+from PIL import Image
+from src.predict import classify_image
+
+
 # define a directory for sample images
-SAMPLE_DIR = "../data/raw/NEU-DET/validation/images"  # Path to sample images
+SAMPLE_DIR = "data/raw/NEU-DET/validation/images"  # path to sample images
 
 # page configuration
 st.set_page_config(
@@ -50,4 +56,36 @@ elif sample_choice:
     st.image(image, caption=f"Sample Image: {sample_choice}", use_column_width=True)
     st.success("Sample image loaded.")
 else:
-    st.info("Please upload na image or choose a sample image.")
+    st.info("Please upload an image or choose a sample image.")
+
+# ------ classification section ------
+if image is not None:
+    if st.button("🔎 Classify Image"):
+        with st.spinner("Classifying..."):
+
+            # placeholder for prediction pipeline (to be implemented in ../src/)
+            from src.predict import classify_image
+
+            # run classification
+            predicted_label, class_probs = classify_image(image, selected_model)
+
+            # display result
+            st.subheader("🧠 Prediction")
+
+            # first get confidence of the top prediction
+            top_confidence = max(class_probs.values())
+
+            # then choose a color based on confidence
+            if top_confidence >= 0.80:
+                label_color = "✅"
+            elif top_confidence >= 0.50:
+                label_color = "⚠️"
+            else:
+                label_color = "❌"
+
+            st.markdown(
+                f"{label_color} **Predicted Class:** `{predicted_label}` ({top_confidence: .2%} confidence)"
+            )
+
+            st.subheader("📊 Class Probabilities")
+            st.bar_chart(class_probs)
