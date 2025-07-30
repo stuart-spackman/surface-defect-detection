@@ -17,6 +17,17 @@ SAMPLE_DIR = "data/raw/NEU-DET/validation/images"  # path to sample images
 # note where the annotations are stored
 annotation_dirs = ["data/raw/NEU-DET/validation/annotations"]
 
+# performance summaries for reference
+MODEL_PERFORMANCE = {
+    "hog_pca": {"Precision": 0.76, "Recall": 0.75, "F1 Score": 0.75},
+    "hog_edge_pca": {"Precision": 0.73, "Recall": 0.73, "F1 Score": 0.72},
+    "hog": {"Precision": 0.65, "Recall": 0.64, "F1 Score": 0.63},
+    "hog_edge": {"Precision": 0.63, "Recall": 0.63, "F1 Score": 0.61},
+    "edge": {"Precision": 0.36, "Recall": 0.34, "F1 Score": 0.34},
+    "raw": {"Precision": 0.34, "Recall": 0.32, "F1 Score": 0.30},
+}
+
+
 # page configuration
 st.set_page_config(
     page_title="Surface Defect Detector",
@@ -30,6 +41,20 @@ st.title("🔍 Surface Defect Detection App")
 # sidebar for model selection
 model_options = ["raw", "edge", "hog", "hog_edge", "hog_pca", "hog_edge_pca"]
 selected_model = st.sidebar.selectbox("Choose a feature set + model", model_options)
+
+# 📊 Sidebar: Model Performance Summary
+st.sidebar.markdown("### 📈 Model Performance Summary")
+
+# selected_model = st.sidebar.selectbox(
+#     "Select model to view metrics:", list(MODEL_PERFORMANCE.keys())
+# )
+
+if model_options:
+    perf = MODEL_PERFORMANCE[selected_model]
+    st.sidebar.metric("Precision", f"{perf['Precision']:.2f}")
+    st.sidebar.metric("Recall", f"{perf['Recall']:.2f}")
+    st.sidebar.metric("F1 Score", f"{perf['F1 Score']:.2f}")
+
 
 # ------ image selection section ------
 st.header("🖼️ Select or Upload Image")
