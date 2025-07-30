@@ -15,10 +15,7 @@ from src.utils import find_annotation_for_image, draw_real_bounding_box
 SAMPLE_DIR = "data/raw/NEU-DET/validation/images"  # path to sample images
 
 # note where the annotations are stored
-annotation_dirs = [
-    "data/raw/NEU-DET/train/annotations",
-    "data/raw/NEU-DET/validation/annotations",
-]
+annotation_dirs = ["data/raw/NEU-DET/validation/annotations"]
 
 # page configuration
 st.set_page_config(
@@ -65,7 +62,16 @@ if image is not None:
     # try to find real bounding box from annotation
     box = find_annotation_for_image(filename, annotation_dirs)
 
-    if box:
+    show_boxes = st.checkbox("Show Annotations (Bounding Boxes)", value=True)
+
+    # DEBUGGING ATTEMPT
+    # st.write("Annotation boxes:", box)
+    # center an display the image before boxes get added
+    # col1, col2, col3 = st.columns(3)
+    # with col2:
+    #     st.image(image, caption="Before drawing boxes")
+
+    if show_boxes and box:
         image_with_box = draw_real_bounding_box(image, box, original_size=(200, 200))
         st.image(
             image_with_box,
@@ -75,7 +81,7 @@ if image is not None:
     else:
         st.image(
             image,
-            caption=f"No Annotation Found: {filename}",
+            caption=f"{'No Annotation Found: ' if not box else ''}{filename}",
             use_column_width=True,
         )
 
