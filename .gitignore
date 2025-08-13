@@ -1,5 +1,17 @@
-# avoid committing large datasets and feature files
+# This file has been made to avoid committing large datasets and feature files to GitHub. 
+
 data/features/
+# This directory contains extracted feature files (e.g., HOG, PCA) 
+# which are large in size and can be regenerated from the raw data if needed.
+
 data/processed/
+# This folder stores preprocessed image files (e.g., grayscale, resized, denoised),
+# which are large and can be recreated using the preprocessing pipeline.
+
 models/*.pkl
+# These .pkl files contain serialized machine learning models which are too large for 
+# GitHub’s 100MB file limit and can be retrained from source if needed.
+
 *.pkl
+# This rule captures all other pickle files that may store intermediate data, 
+# trained models, or large arrays, often exceeding GitHub's recommended size limits.

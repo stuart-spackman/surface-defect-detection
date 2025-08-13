@@ -1,0 +1,31 @@
+.
+├── ./app
+│   └── ./app/app.py
+├── ./data
+├── ./environment.yml
+├── ./file_list.txt
+├── ./models
+│   ├── ./models/edge_report.txt
+│   ├── ./models/hog_edge_pca_report.txt
+│   ├── ./models/hog_edge_report.txt
+│   ├── ./models/hog_pca_report.txt
+│   ├── ./models/hog_report.txt
+│   └── ./models/raw_report.txt
+├── ./notebooks
+│   ├── ./notebooks/01_data_exploration.ipynb
+│   ├── ./notebooks/02_preprocessing.ipynb
+│   ├── ./notebooks/03_feature_extraction.ipynb
+│   ├── ./notebooks/04_model_training.ipynb
+│   └── ./notebooks/05_evaluation_metrics.ipynb
+├── ./README.md
+├── ./requirements.txt
+├── ./src
+│   ├── ./src/config.py
+│   ├── ./src/features.py
+│   ├── ./src/predict.py
+│   ├── ./src/preprocessing.py
+│   └── ./src/utils.py
+└── ./tests
+    └── ./tests/test_model.py
+
+53 directories, 1822 files

@@ -42,7 +42,7 @@ st.title("🔍 Surface Defect Detection App")
 model_options = ["raw", "edge", "hog", "hog_edge", "hog_pca", "hog_edge_pca"]
 selected_model = st.sidebar.selectbox("Choose a feature set + model", model_options)
 
-# 📊 Sidebar: Model Performance Summary
+# Sidebar: Model Performance Summary
 st.sidebar.markdown("### 📈 Model Performance Summary")
 
 # selected_model = st.sidebar.selectbox(
