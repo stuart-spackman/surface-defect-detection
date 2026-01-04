@@ -22,3 +22,14 @@ models/*.pkl
 *.tar
 *.tar.gz
 *.rar
+
+# ML model artifacts
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.ckpt
