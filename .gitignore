@@ -15,3 +15,10 @@ models/*.pkl
 *.pkl
 # This rule captures all other pickle files that may store intermediate data, 
 # trained models, or large arrays, often exceeding GitHub's recommended size limits.
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.rar
