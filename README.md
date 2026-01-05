@@ -53,8 +53,6 @@ The best-performing pipeline was:
 - Demonstrates that classical ML remains viable when paired with strong feature design
 
 ### Confusion Matrix (Best Model: HOG + PCA)
-_Add image to `assets/confusion_matrix_hog_pca.png`_
-
 ![Confusion Matrix – HOG + PCA](assets/confusion_matrix_hog_pca.png)
 
 ---
