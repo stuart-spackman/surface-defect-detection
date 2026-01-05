@@ -1,11 +1,3 @@
-Perfect — that confirms your VS Code profile was the issue, and you’re unblocked now 👍
-Here is a **clean, copy-paste–ready README.md** you can drop straight into the file. This version is slightly tightened for **recruiters + reviewers**, but still matches your paper exactly.
-
-You can paste **everything below** into `README.md` in VS Code (the clean profile) or via `nano`.
-
----
-
-````markdown
 # Surface Defect Detection Using Classical Machine Learning
 
 **Author:** Stuart Spackman  
