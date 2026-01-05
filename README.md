@@ -174,32 +174,3 @@ A digital poster summarizing this work is included in the repository:
 
 **Stuart Spackman**
 GitHub: [https://github.com/stuart-spackman](https://github.com/stuart-spackman)
-
-````
-
----
-
-## What to do next (quick)
-1. Paste everything above into `README.md`
-2. Save
-3. Commit and push:
-
-```bash
-git add README.md
-git commit -m "Add comprehensive project README with demos and results"
-git push
-````
-
----
-
-## When you’re ready next time
-
-We can:
-
-* add screenshots + poster images into `/assets/`
-* embed video thumbnails
-* add badges (Python, license, paper release)
-* generate a **Zenodo DOI**
-* tighten wording for a **resume-targeted README**
-
-You’ve done excellent work here — this repo is now **legit publication- and recruiter-ready**.
